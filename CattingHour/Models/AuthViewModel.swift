@@ -6,11 +6,19 @@ class AuthViewModel: ObservableObject {
     @Published var user: User?
 
     init() {
-        user = SupabaseService.shared.client.auth.session.user
+        Task {
+            await refreshUser()
+        }
     }
 
-    func refreshUser() {
-        user = SupabaseService.shared.client.auth.session.user
+    func refreshUser() async {
+        do {
+            let session = try await SupabaseService.shared.client.auth.session
+            self.user = session.user
+        } catch {
+            print("⚠️ Failed to get session: \(error)")
+            self.user = nil
+        }
     }
 
     func logout() async {

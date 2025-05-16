@@ -4,5 +4,7 @@
 <dict>
 	<key>MBXAccessToken</key>
 	<string>pk.eyJ1IjoicnNwZW5jZXIiLCJhIjoiY20wZ3lpcmN4MDVzNjJscTJnYmtlNnNnMSJ9.MFGDyR5V8OEZnPQTr918Rw</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs your location to log cat sightings.</string>
 </dict>
 </plist>

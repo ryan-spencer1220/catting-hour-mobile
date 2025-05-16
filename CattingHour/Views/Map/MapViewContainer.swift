@@ -1,6 +1,9 @@
+import SwiftUI
+import MapboxMaps
+
 struct MapViewContainer: UIViewRepresentable {
     @Binding var selectedCat: CatSighting?
-    
+
     class Coordinator: NSObject, AnnotationInteractionDelegate {
         var parent: MapViewContainer
         var annotations: [String: CatSighting] = [:]
@@ -9,10 +12,11 @@ struct MapViewContainer: UIViewRepresentable {
             self.parent = parent
         }
 
-        func mapView(_ mapView: MapView, didDetectTappedAnnotation annotation: Annotation) {
-            if let id = annotation.id, let cat = annotations[id] {
-                parent.selectedCat = cat
-            }
+        func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Annotation]) {
+            guard let tapped = annotations.first,
+                  let cat = self.annotations[tapped.id] else { return }
+
+            parent.selectedCat = cat
         }
     }
 
@@ -22,22 +26,18 @@ struct MapViewContainer: UIViewRepresentable {
 
     func makeUIView(context: Context) -> MapView {
         let accessToken = Bundle.main.object(forInfoDictionaryKey: "MBXAccessToken") as? String ?? ""
-
         let options = MapInitOptions(
             resourceOptions: ResourceOptions(accessToken: accessToken),
             styleURI: .light
         )
 
         let mapView = MapView(frame: .zero, mapInitOptions: options)
-        context.coordinator.mapView = mapView
-
         let center = CLLocationCoordinate2D(latitude: 45.5122, longitude: -122.6587)
         let camera = CameraOptions(center: center, zoom: 13)
         mapView.mapboxMap.setCamera(to: camera)
-        mapView.gestures.delegate = context.coordinator
 
         Task {
-            await loadMarkers(mapView)
+            await loadMarkers(mapView, context: context)
         }
 
         return mapView
@@ -53,15 +53,18 @@ struct MapViewContainer: UIViewRepresentable {
             var catMap: [String: CatSighting] = [:]
 
             for cat in cats {
-                var annotation = PointAnnotation(coordinate: CLLocationCoordinate2D(latitude: cat.latitude, longitude: cat.longitude))
                 let id = UUID().uuidString
-                annotation.id = id
+                var annotation = PointAnnotation(id: id, coordinate: CLLocationCoordinate2D(
+                    latitude: cat.latitude,
+                    longitude: cat.longitude
+                ))
                 annotation.image = .init(image: UIImage(systemName: "pawprint.fill")!, name: "cat-marker")
                 annotations.append(annotation)
                 catMap[id] = cat
             }
 
             context.coordinator.annotations = catMap
+
             let manager = mapView.annotations.makePointAnnotationManager()
             manager.delegate = context.coordinator
             manager.annotations = annotations

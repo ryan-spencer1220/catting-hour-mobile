@@ -5,6 +5,7 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var errorMessage: String?
+    @EnvironmentObject var auth: AuthViewModel
 
     var body: some View {
         NavigationView {
@@ -42,7 +43,7 @@ struct LoginView: View {
     func logIn() async {
         do {
             try await SupabaseService.shared.client.auth.signIn(email: email, password: password)
-            print("✅ Logged in")
+            await auth.refreshUser() // ✅ updates UI
         } catch {
             errorMessage = "❌ Login failed: \(error.localizedDescription)"
         }

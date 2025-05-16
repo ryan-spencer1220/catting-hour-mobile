@@ -1,17 +1,11 @@
-//
-//  MainView.swift
-//  CattingHour
-//
-//  Created by Ryan Spencer on 5/15/25.
-//
-
-
 import SwiftUI
 
 struct MainView: View {
+    @Binding var selectedCat: CatSighting?
+    
     var body: some View {
         TabView {
-            MapViewContainer()
+            MapViewContainer(selectedCat: $selectedCat)
                 .tabItem {
                     Label("Map", systemImage: "map")
                 }

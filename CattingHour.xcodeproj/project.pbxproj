@@ -6,6 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		524D8A7E2DD6EAF30026AEF1 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 524D8A7D2DD6EAF30026AEF1 /* Auth */; };
+		524D8A802DD6EAF30026AEF1 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 524D8A7F2DD6EAF30026AEF1 /* Functions */; };
+		524D8A822DD6EAF30026AEF1 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 524D8A812DD6EAF30026AEF1 /* PostgREST */; };
+		524D8A842DD6EAF30026AEF1 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 524D8A832DD6EAF30026AEF1 /* Realtime */; };
+		524D8A862DD6EAF30026AEF1 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 524D8A852DD6EAF30026AEF1 /* Storage */; };
+		524D8A892DD6EB2C0026AEF1 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 524D8A882DD6EB2C0026AEF1 /* MapboxMaps */; };
+		524D8AA62DD6FDCE0026AEF1 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 524D8AA52DD6FDCE0026AEF1 /* Supabase */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		524D8A602DD6EA8F0026AEF1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,9 +39,22 @@
 		524D8A692DD6EA8F0026AEF1 /* CattingHourUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CattingHourUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		524D8A8B2DD6ED260026AEF1 /* Exceptions for "CattingHour" folder in "CattingHour" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Info.plist,
+			);
+			target = 524D8A4E2DD6EA8E0026AEF1 /* CattingHour */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		524D8A512DD6EA8E0026AEF1 /* CattingHour */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				524D8A8B2DD6ED260026AEF1 /* Exceptions for "CattingHour" folder in "CattingHour" target */,
+			);
 			path = CattingHour;
 			sourceTree = "<group>";
 		};
@@ -52,6 +75,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524D8AA62DD6FDCE0026AEF1 /* Supabase in Frameworks */,
+				524D8A892DD6EB2C0026AEF1 /* MapboxMaps in Frameworks */,
+				524D8A822DD6EAF30026AEF1 /* PostgREST in Frameworks */,
+				524D8A802DD6EAF30026AEF1 /* Functions in Frameworks */,
+				524D8A7E2DD6EAF30026AEF1 /* Auth in Frameworks */,
+				524D8A862DD6EAF30026AEF1 /* Storage in Frameworks */,
+				524D8A842DD6EAF30026AEF1 /* Realtime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +108,7 @@
 				524D8A512DD6EA8E0026AEF1 /* CattingHour */,
 				524D8A622DD6EA8F0026AEF1 /* CattingHourTests */,
 				524D8A6C2DD6EA8F0026AEF1 /* CattingHourUITests */,
+				524D8AA42DD6FDCA0026AEF1 /* Frameworks */,
 				524D8A502DD6EA8E0026AEF1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +121,13 @@
 				524D8A692DD6EA8F0026AEF1 /* CattingHourUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		524D8AA42DD6FDCA0026AEF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +150,13 @@
 			);
 			name = CattingHour;
 			packageProductDependencies = (
+				524D8A7D2DD6EAF30026AEF1 /* Auth */,
+				524D8A7F2DD6EAF30026AEF1 /* Functions */,
+				524D8A812DD6EAF30026AEF1 /* PostgREST */,
+				524D8A832DD6EAF30026AEF1 /* Realtime */,
+				524D8A852DD6EAF30026AEF1 /* Storage */,
+				524D8A882DD6EB2C0026AEF1 /* MapboxMaps */,
+				524D8AA52DD6FDCE0026AEF1 /* Supabase */,
 			);
 			productName = CattingHour;
 			productReference = 524D8A4F2DD6EA8E0026AEF1 /* CattingHour.app */;
@@ -195,6 +240,10 @@
 			);
 			mainGroup = 524D8A462DD6EA8E0026AEF1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				524D8A7C2DD6EAF30026AEF1 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				524D8A872DD6EB2C0026AEF1 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 524D8A502DD6EA8E0026AEF1 /* Products */;
 			projectDirPath = "";
@@ -399,11 +448,13 @@
 				DEVELOPMENT_TEAM = T86U8C8854;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CattingHour/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -428,11 +479,13 @@
 				DEVELOPMENT_TEAM = T86U8C8854;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CattingHour/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,6 +611,63 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		524D8A7C2DD6EAF30026AEF1 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase-community/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+		524D8A872DD6EB2C0026AEF1 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		524D8A7D2DD6EAF30026AEF1 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 524D8A7C2DD6EAF30026AEF1 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		524D8A7F2DD6EAF30026AEF1 /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 524D8A7C2DD6EAF30026AEF1 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		524D8A812DD6EAF30026AEF1 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 524D8A7C2DD6EAF30026AEF1 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		524D8A832DD6EAF30026AEF1 /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 524D8A7C2DD6EAF30026AEF1 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		524D8A852DD6EAF30026AEF1 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 524D8A7C2DD6EAF30026AEF1 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		524D8A882DD6EB2C0026AEF1 /* MapboxMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 524D8A872DD6EB2C0026AEF1 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			productName = MapboxMaps;
+		};
+		524D8AA52DD6FDCE0026AEF1 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 524D8A7C2DD6EAF30026AEF1 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 524D8A472DD6EA8E0026AEF1 /* Project object */;
 }

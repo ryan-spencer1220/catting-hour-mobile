@@ -8,7 +8,7 @@ struct CatDetailView: View {
             Text(cat.name ?? "Unnamed Cat")
                 .font(.largeTitle)
             Text(cat.notes)
-            Text("Seen on \(cat.dateSeen.formatted(.dateTime.month().day().year()))")
+            Text("Seen on \(cat.dateSeen.formatted(date: .abbreviated, time: .omitted))")
             Text("Lat: \(cat.latitude), Lon: \(cat.longitude)")
             Spacer()
         }
